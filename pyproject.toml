@@ -17,7 +17,6 @@ dependencies = [
     "greenlet>=3.3.1",
     "bcrypt==4.3.0",
     "ruff>=0.14.14",
+    "pyjwt>=2.12.1",
+    "cryptography>=47.0.0",
 ]
-
-[tool.uv]
-dev-dependencies = []
