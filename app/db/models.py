@@ -1,13 +1,11 @@
 # В этом файле нужно описать ORM-модели
 
+from datetime import datetime
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from app.db.base import Base
-
-
 from sqlalchemy import func, DateTime
-from datetime import datetime
 
+from app.db.base import Base
 
 class User(Base):
     """Модель пользователя"""

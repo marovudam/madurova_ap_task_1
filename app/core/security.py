@@ -6,15 +6,15 @@
 # Этот файл не должен обращаться к базе данных и не должен знать, как устроены роуты. 
 # Он предоставляет только функции для использования в usecase и dependency-слое.
 
-
-from passlib.context import CryptContext
 import time
 import jwt
-from app.core.config import settings
+from passlib.context import CryptContext
 from typing import Any
 
-pwd_context = CryptContext(schemes=["bcrypt"])
+from app.core.config import settings
 
+
+pwd_context = CryptContext(schemes=["bcrypt"])
 
 def hash_password(password: str) -> str:
     """Функция хеширования пароля"""

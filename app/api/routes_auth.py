@@ -6,8 +6,8 @@ from fastapi.security import OAuth2PasswordRequestForm
 from app.api.deps import get_auth_usecase, get_current_user_id
 from app.core.errors import NotAuthorizedError, NotFoundError, EmailConflictError
 from app.schemas.auth import RegisterRequest, TokenResponse
-from app.usecases.auth import AuthUseCase
 from app.schemas.user import UserPublic
+from app.usecases.auth import AuthUseCase
 
 router = APIRouter()
 

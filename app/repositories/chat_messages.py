@@ -4,17 +4,17 @@
 # В этом файле нельзя обращаться к OpenRouter и нельзя формировать логику “какие сообщения включать в контекст”.
 #  Репозиторий только читает и пишет данные.
 
-from app.db.models import ChatMessage
 from sqlalchemy import select, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.db.models import ChatMessage
 
 class ChatMessageRepository:
     """Репозиторий сообщений"""
     def __init__(self, session: AsyncSession):
         self.__session = session
 
-    async def create(self, user_id, role, content):
+    async def create(self, user_id: int, role: str, content: str):
         """Отправка сообщения"""
         message = ChatMessage(user_id=user_id, role=role, content=content)
         self.__session.add(message)
@@ -29,7 +29,7 @@ class ChatMessageRepository:
         result = await self.__session.execute(query)
         return list(result.scalars().all())
     
-    async def delete_all(self, user_id):
+    async def delete_all(self, user_id: int):
         """Удаление истории переписки пользователя"""
         query = delete(ChatMessage).where(ChatMessage.user_id == user_id)
         await self.__session.execute(query)

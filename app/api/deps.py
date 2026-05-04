@@ -5,13 +5,13 @@ from fastapi.security import OAuth2PasswordBearer
 from typing import AsyncGenerator
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.security import decode_token
 from app.db.session import AsyncSessionLocal
 from app.repositories.users import UserRepository
 from app.repositories.chat_messages import ChatMessageRepository
 from app.services.openrouter_client import OpenRouterClient
 from app.usecases.auth import AuthUseCase
 from app.usecases.chat import ChatUseCase
-from app.core.security import decode_token
 
 async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
     """Получение сессии БД"""

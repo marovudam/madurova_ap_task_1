@@ -1,9 +1,9 @@
 # В этом файле нужно реализовать репозиторий пользователей
 
-from app.db.models import User
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.db.models import User
 
 class UserRepository:
     """Репозиторий пользователей"""
@@ -22,7 +22,7 @@ class UserRepository:
         result = await self.__session.execute(query)
         return result.scalar_one_or_none()
 
-    async def create(self, email, password_hash, role):
+    async def create(self, email: str, password_hash: str, role: str):
         """Регистрация пользователя"""
         user = User(email=email, password_hash=password_hash, role=role)
         self.__session.add(user)

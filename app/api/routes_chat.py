@@ -19,8 +19,7 @@ async def chat(request: ChatRequest, user_id: int = Depends(get_current_user_id)
     except ExternalServiceError as e:
         raise HTTPException(
             status_code=status.HTTP_502_BAD_GATEWAY,
-            detail=str(e)
-        )
+            detail=str(e))
 
 
 @router.get("/history", response_model=ChatHistoryResponse)

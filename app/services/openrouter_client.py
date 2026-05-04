@@ -1,4 +1,5 @@
 # В этом файле нужно реализовать клиента для OpenRouter
+
 import httpx
 
 from app.core.config import settings

@@ -1,7 +1,8 @@
 # В этом файле нужно создать асинхронный engine SQLAlchemy и фабрику сессий
 
-from app.core.config import settings
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
+
+from app.core.config import settings
 
 SQLITE_PATH = "sqlite+aiosqlite:///" + settings.SQLITE_PATH
 
